@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Calculator</title>
+<style type="text/css">
+
+input
+{
+border: 2px Solid White;
+width:50px;
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 5px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+}
+input[type="text"]
+{
+width:200px;
+height:30px;
+font-size:18px;	
+	}
+</style>
+<script type="text/javascript">
+var content = "";
+
+function clear()
+{
+
+	}
+
+function calculate(now)
+{
+	if(now == "=")
+	{
+		if (content.charAt(-1) == '+' || content.charAt(-1) == '-' || content.charAt(-1) == '*' || content.charAt(-1) == '/' || content.charAt(0) == '+' || content.charAt(0) == '*' || content.charAt(0) == '/')
+		alert("Invalid Input..!");
+		document.form.out.value = eval(content);
+		content = eval(content);
+	}
+	else if (now == "c")
+	{
+		content = "";
+		document.form.out.value = content;	
+	}
+	else
+	{
+		content += now;
+		document.form.out.value = content;
+	}
+}
+
+function welcome()
+{
+confirm("You are going to use just a Simple Calculator. Use it only for your work, don't try to test it. Ok..?");
+	}
+</script>
+</head>
+
+<body bgcolor="aqua" onload="welcome()">
+<form action="#" method="post" name="form"><table align="center" bgcolor="#00CCCC"><caption>Simple Calculator</caption>
+<tr><td colspan="4"><input type="text" name="out" /></td></tr>
+<tr><td><input type="button" name="1" onclick="calculate(1)" value="1" /></td><td><input type="button" name="2" onclick="calculate(2)" value="2" /></td><td><input type="button" name="3" onclick="calculate(3)" value="3" /></td><td><input type="button" name="add" onclick="calculate('+')" value="+" /></td></tr>
+<tr><td><input type="button" name="4" onclick="calculate(4)" value="4" /></td><td><input type="button" name="5" onclick="calculate(5)" value="5" /></td><td><input type="button" name="6" onclick="calculate(6)" value="6" /></td><td><input type="button" name="sub" onclick="calculate('-')" value="-" /></td></tr>
+<tr><td><input type="button" name="7" onclick="calculate(7)" value="7" /></td><td><input type="button" name="8" onclick="calculate(8)" value="8" /></td><td><input type="button" name="9" onclick="calculate(9)" value="9" /></td><td><input type="button" name="mul" onclick="calculate('*')" value="*" /></td></tr>
+<tr><td><input type="button" name="0" onclick="calculate(0)" value="0" /></td><td><input type="reset" name="c" value="C" onclick="calculate('c');"/></td><td><input type="button" name="=" onclick="calculate('=')" value="=" /></td><td><input type="button" name="div" onclick="calculate('/')" value="/" /></td></tr>
+</table></form>
+</body>
+</html>
